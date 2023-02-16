@@ -9,6 +9,27 @@ This project was created as a simple easy to use resume website with a blog with
 ![Portolio_Blog](app/blog/static/images/readme/resume.png)
 
 ## SetUp
+You will also need an env file located at app/.env
+
+The contents should be defined as follows
+```bash
+SQLALCHEMY_DATABASE_URI=sqlite:///blogger.db
+SQLALCHEMY_TRACK_MODIFICATIONS=False
+IS_PRODUCTION=False
+
+IMAGE_UPLOADS=blog/static/images
+VALID_IMAGE_EXTENTIONS=['JPG', 'JPEG', 'PNG']
+VALID_AUDIO_EXTENTIONS=['MP3', '3GPP']
+VALID_VIDEO_EXTENTIONS=['MP4', '3GP']
+
+DEV_CAPTCHA_PUBLIC=YourCaptchaDevelopmentPublicKey
+DEV_CAPTCHA_PRIVATE=YourCaptchaDevelopmentPrivateKey
+PROD_CAPTCHA_PUBLIC=YourCaptchaProductionPublicKey
+PROD_CAPTCHA_PRIVATE=YourCaptchaProductionPublicKey
+SENDINBLUE_API_KEY=YourSendInBlueApiKey
+
+```
+
 With python, pip and git installed
 
 ```bash
@@ -40,4 +61,3 @@ Visit domain//view_blog
 The design of the resume was inspired by this [free design](https://www.behance.net/gallery/124889695/Dev-portfolio-website?tracking_source=search_projects%7Cresume+website)
 
 Enjoy!
-
