@@ -667,6 +667,8 @@ class Resume(db.Model):
     twitter = Column(String, nullable=False)
     github = Column(String, nullable=False)
     linkedin = Column(String, nullable=False)
+    resume_image = Column(String, nullable=True)
+    resume_file = Column(String, nullable=True)
     Work_content = Column(Text, nullable=False)
 
     def get_hero_content(self):
@@ -690,6 +692,12 @@ class Resume(db.Model):
     def get_linkedin(self):
         return self.linkedin
 
+    def get_image(self):
+        return self.resume_image
+
+    def get_resume_file(self):
+        return self.resume_file
+
     def dict(self):
         return{
             "hero_content":self.Hero_content,
@@ -698,6 +706,8 @@ class Resume(db.Model):
             "twitter":self.twitter,
             "github":self.github,
             'linkedin':self.linkedin,
+            "resume_image":self.resume_image.split("/")[-1],
+            "resume_file":self.resume_file.split("/")[-1],
             "work_content":self.Work_content
         }
 
@@ -827,7 +837,7 @@ class Resume(db.Model):
         resumes = Resume.fetch_resume()
 
         if resumes["message"]["dict"] == []:
-            res = Resume.add_resume(
+            Resume.add_resume(
                 Hero_content = "Default hero content",
                 About_content = "Default about content",
                 Email = "sample@mail.com",
@@ -835,6 +845,8 @@ class Resume(db.Model):
                 github = "github_id",
                 linkedin = "linkedin_id",
                 Work_content = "Default work content",
+                resume_image = "not_available",
+                resume_file = "not_available"
             )
 
 
@@ -1971,7 +1983,7 @@ class ContactMe(db.Model):
             contacts = db.session.query(ContactMe).all()
             contacts = [contact.dict() for contact in contacts]
             return{
-                "message":contacts,
+                "message":contacts[::-1],
                 "status":"success"
             }
 

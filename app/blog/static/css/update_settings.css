@@ -1,0 +1,72 @@
+.remove_display{
+    display: none;
+}
+
+.settings{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    margin: 20px 0;
+    padding: 20px 5px;
+    background-color: white;
+    width: 70%;
+    border-radius: 5px;
+    border: 2px solid seagreen;
+}
+
+.content h3{
+    text-transform: uppercase;
+    border-bottom: 2px solid #E4E9F7;
+}
+
+fieldset{
+    border: none;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+fieldset label {
+    font-size: 12px;
+    font-weight: 900;
+    color: seagreen;
+    text-transform: capitalize;
+}
+
+fieldset input {
+    margin: 10px 0;
+    padding: 10px 5px;
+    border: 2px solid seagreen;
+    border-radius: 5px;
+    width: 100%;
+}
+
+fieldset button {
+    height: 50px;
+    border: 2px solid seagreen;
+    background-color: seagreen;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 900;
+    color: white;
+}
+
+fieldset a{
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-decoration: none;
+    color: seagreen;
+}
+
+@media only screen and (max-width:500px){
+    .content{
+        width: 100%;
+        margin: 5px;
+    }
+}

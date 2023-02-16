@@ -4,6 +4,7 @@ import logging
 from app.model import Company, app_tz
 from datetime import datetime
 from app.model import Blogger
+from app.model import Resume
 from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField,TextAreaField,SubmitField,PasswordField,SelectField,BooleanField,FileField
 from wtforms.validators import DataRequired,Email,EqualTo,Length,Regexp,ValidationError
@@ -473,4 +474,43 @@ class ProjectForm(FlaskForm):
 
     Project_background_image = FileField(
         "Project Image"
+    )
+
+
+class SettingsForm(FlaskForm):
+
+    upload_resume = FileField(
+        "Upload Resume"
+    )
+
+    resume_image = FileField(
+        "Resume Image"
+    )
+
+    twitter_link = StringField(
+        "Twitter Profile",
+        render_kw = {
+            "placeholder":"https://www.twitter.com/xxxxxxxx",
+            "value":Resume.fetch_resume()["message"]["dict"][0]["twitter"]}
+    )
+
+    linkedin_link = StringField(
+        "LinkedIn Profile",
+        render_kw = {
+            "placeholder":"https://www.linkedin.com/in/xxxxxxx",
+            "value":Resume.fetch_resume()["message"]["dict"][0]["linkedin"]}
+    )
+
+    github_link = StringField(
+        "Github Profile",
+        render_kw = {
+            "placeholder":"https://www.github.com/xxxxxxx",
+            "value":Resume.fetch_resume()["message"]["dict"][0]["github"]}
+    )
+
+    email = StringField(
+        "Email Address",
+        render_kw = {
+            "placeholder":"sample@sample_mail.com",
+            "value":Resume.fetch_resume()["message"]["dict"][0]["email"]}
     )

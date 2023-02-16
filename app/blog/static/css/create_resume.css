@@ -1006,6 +1006,10 @@ tr td {
 }
 
 @media (max-width: 1100px){
+    .section_one{
+        padding: 5px;
+    }
+
     .section_two{
         display: none;
     }

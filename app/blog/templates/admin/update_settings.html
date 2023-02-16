@@ -2,7 +2,7 @@
 
 {% block css %}
 
-  <link href="/blog{{ url_for('static', filename='css/update_blogger.css') }}" rel="stylesheet">
+  <link href="{{ url_for('blog_bp.static', filename='css/update_settings.css') }}" rel="stylesheet">
 
 {% endblock %}
 
@@ -10,13 +10,64 @@
 
 <div class="container">
     <div class="settings">
-        <div class="header">
-            Settings
-        </div>
 
         <div class="content">
-            Settings Content
+            <h3>Update Settings</h3>
+
+            <form >
+                {{SettingsForm.hidden_tag()}}
+
+                <fieldset>
+                    {{SettingsForm.upload_resume.label}}
+                    {{SettingsForm.upload_resume}}
+                    <a href="http://">
+                        <small class="view">
+                            View Resume
+                        </small>
+                    </a>
+                </fieldset>
+
+                <fieldset>
+                    {{SettingsForm.resume_image.label}}
+                    {{SettingsForm.resume_image}}
+                    <a href="http://">
+                        <small class="view">
+                            View Image
+                        </small>
+                    </a>
+                </fieldset>
+
+                <fieldset>
+                    {{SettingsForm.twitter_link.label}}
+                    {{SettingsForm.twitter_link}}
+                </fieldset>
+
+                <fieldset>
+                    {{SettingsForm.linkedin_link.label}}
+                    {{SettingsForm.linkedin_link}}
+                </fieldset>
+
+                <fieldset>
+                    {{SettingsForm.github_link.label}}
+                    {{SettingsForm.github_link}}
+                </fieldset>
+
+                <fieldset>
+                    {{SettingsForm.email.label}}
+                    {{SettingsForm.email}}
+                </fieldset>
+
+                <fieldset>
+                    <button class="save_settings" id="save_settings">
+                        Save Settings
+                    </button>
+                </fieldset>
+            </form>
+
         </div>
+
     </div>
 </div>
+
+<script src="{{url_for('blog_bp.static', filename='js/update_settings.js')}}"></script>
 {% endblock %}

@@ -11,7 +11,7 @@
             <div class="header_container">
                 <div class="header">
                     <div>
-                        <img class="image" src="/blog{{url_for('static', filename='images/my_image.jpg')}}" alt="my image">
+                        <img class="image" src="/blog/static/images/{{content['resume']['message']['dict'][0]['resume_image']}}" alt="my image">
                     </div>
         
                     <div class="navigation">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="hero_img">
-                    <img src="/blog{{url_for('static', filename='images/my_image.jpg')}}" alt="">
+                    <img src="/blog/static/images/{{content['resume']['message']['dict'][0]['resume_image']}}" alt="">
                 </div>
             </div>
 

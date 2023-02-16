@@ -88,3 +88,17 @@ i {
 .g-recaptcha div {
     margin: auto;
   }
+
+@media only screen and (max-width:500px){
+    .container{
+        flex-wrap: unset;
+        align-items: unset;
+        justify-content: unset;
+        padding: 5px;
+    }
+
+    .container_content{
+        margin: unset;
+        height: 100%;
+    }
+}

@@ -1,11 +1,9 @@
+from email.mime import image
 import os
 import uuid
 import string
 import random
 import logging
-
-from cv2 import log
-
 
 from app.blog import blog_bp
 from app.model import Settings
@@ -25,6 +23,7 @@ from flask_login import login_user
 from flask_login import logout_user
 from flask_login import current_user
 from app.blog.forms import CertificateForm
+from app.blog.forms import SettingsForm
 from app.blog.forms import ExperienceForm
 from app.blog.forms import LoginForm
 from app.blog.forms import StackForm
@@ -109,7 +108,6 @@ def base():
 
 @blog_bp.route('/blogger_create', methods=['POST',"GET"])
 def blogger_create():
-    print(request.method)
     bloggerform = RegisterBloggerForm()
     if request.method == 'POST':
         is_validated = bloggerform.validate_on_submit()
@@ -138,17 +136,18 @@ def blogger_create():
 
     else:
         response = Blogger.check_admin_is_available()
-        print(response)
         if response["status"] == "failed":
             flash(response["message"],response["status"])
 
         else:
             if response["message"] == True:
+                flash("An admin already exists", "warning")
                 return redirect(url_for("blog_bp.blogger_login"))
 
     return render_template(
         "admin/register.html", 
         BloggerForm = bloggerform, 
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         content = {"page_title":"Create a blogger"}
         )
 
@@ -182,6 +181,7 @@ def blogger_login():
 
     return render_template(
         "admin/login.html", 
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         Loginform = loginform, 
         content = {"page_title":"Login to blogger account"}
         )
@@ -251,7 +251,8 @@ def blogger_dashboard():
             Blogger_Articles = current_user.get_blogger_articles(),
             files = all_files,
             content = {"page_title":"Admin dashboard"},
-            categories = Posts.get_all_categories()
+            categories = Posts.get_all_categories(),
+            image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
             )
 
     else:
@@ -426,7 +427,8 @@ def add_blogger():
         BloggerForm = bloggerform, 
         Blogger_Name = current_user.get_blogger_name(), 
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Create a blogger"}
+        content = {"page_title":"Create a blogger"},
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
 
@@ -447,7 +449,8 @@ def update_blogger():
         Blogger_Name = current_user.get_blogger_name(),
         Blogger_Mail = current_user.get_blogger_email(),
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Update blogger"}
+        content = {"page_title":"Update blogger"},
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
 
@@ -555,7 +558,8 @@ def update_password():
         Blogger_Name = current_user.get_blogger_name(),
         Blogger_Mail = current_user.get_blogger_email(),
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Update blogger"}
+        content = {"page_title":"Update blogger"},
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
     )
 
 
@@ -586,6 +590,7 @@ def create_resume():
         CertificateForm = certificateform,
         StackForm = stackform,
         ProjectForm = projectform,
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
 @blog_bp.route("/update_welcome_text",methods=["POST"])
@@ -1281,7 +1286,8 @@ def view_message():
         content = {
             "page_title":"Messages",
             "messages":ContactMe.fetch_contact()["message"]
-            }
+            },
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
 
@@ -1292,5 +1298,63 @@ def update_settings():
         "admin/update_settings.html",
         Page_name = "Settings",
         Blogger_Name = current_user.get_blogger_name(),
-        content = {"page_title":"Settings"}
+        SettingsForm = SettingsForm(),
+        content = {"page_title":"Settings"},
+        image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
+
+
+@blog_bp.route("/save_settings", methods=["PUT"])
+@login_required
+def save_settings():
+    try:
+        resume_file = request.files["upload_resume"]
+        resume_image = request.files["resume_image"]
+        twitter_link = request.form["twitter_link"]
+        linkedin_link = request.form["linkedin_link"]
+        github_link = request.form["github_link"]
+        mail = request.form["email"]
+
+        if resume_file.filename.endswith((".txt",".docs",".doc",".pdf")):
+            resume_folder = "app/blog/static/files"
+            os.makedirs(resume_folder, exist_ok=True)
+            resume_filepath = f"{resume_folder}/{secure_filename(resume_file.filename)}"
+
+        else:
+            return {
+                "message":"Invalid resume file type",
+                "status":"warning"
+            }
+
+        if resume_image.filename.endswith((".png",".jpeg",".jpg")):
+            image_folder = "app/blog/static/images"
+            os.makedirs(image_folder, exist_ok=True)
+            resume_imagepath = f"{image_folder}/{secure_filename(resume_image.filename)}"
+
+        else:
+            return{
+                "message":"Invalid image format",
+                "status":"warning"
+            }
+
+        resume_file.save(resume_filepath)
+        resume_image.save(resume_imagepath)
+
+        kwargs = {
+            "Email":mail,
+            "twitter":twitter_link,
+            "linkedin":linkedin_link,
+            "github":github_link,
+            "resume_image":resume_imagepath,
+            "resume_file":resume_filepath,
+        }
+
+        response = Resume.update_resume(**kwargs)
+        return response
+
+    except Exception as e:
+        logger.exception(e)
+        return{
+            "message":"An error occurrd while saving settings",
+            "status":"failed"
+        }
