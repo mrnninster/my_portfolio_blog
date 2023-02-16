@@ -55,9 +55,12 @@
         
                 <div class="resume_cta">
                     <div class="download_btn">
-                        <button>
-                            Download my resume
-                        </button>
+                        {% set resume_file = content['resume']['message']['dict'][0]['resume_file'] %}
+                        <a href="/blog/static/files/{{resume_file}}">
+                            <button>
+                                Download my resume
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -370,7 +373,7 @@
     
                     <div class="resume_dwnd">
                         <div class="header">Resume</div>
-                        <a href="" class="content">Download my Resume</a>
+                        <a href="/blog/static/files/{{resume_file}}" class="content">Download my Resume</a>
                     </div>
                 </div>
 

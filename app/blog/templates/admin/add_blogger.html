@@ -96,18 +96,6 @@
               {% endif %}
             </div>
     
-            <div class="recaptcha">
-              {{ BloggerForm.recaptcha }}
-    
-              {% if BloggerForm.recaptcha.errors %}
-                  <ul class="errors">
-                      {% for error in BloggerForm.recaptcha.errors %}
-                          <li>Captcha Failed</li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-            </div>
-    
             {{ BloggerForm.submit }}
           </form>
     </div>

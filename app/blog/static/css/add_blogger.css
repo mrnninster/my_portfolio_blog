@@ -40,6 +40,10 @@
     text-transform: capitalize;
 }
 
+.container_content form div input{
+    width: 100%;
+}
+
 input, select{
     padding: 10px;
 }
@@ -100,5 +104,9 @@ i {
     .container_content{
         margin: unset;
         height: 100%;
+    }
+
+    .iframe{
+        width: 200px;
     }
 }
