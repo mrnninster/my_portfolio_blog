@@ -1,3 +1,4 @@
+from ast import Str
 from dataclasses import dataclass
 import os
 import pytz
@@ -661,6 +662,7 @@ class Resume(db.Model):
     __tablename__ = "resume"
 
     id = Column(Integer, primary_key=True)
+    Name = Column(String, nullable=True)
     Hero_content = Column(Text, nullable=False)
     About_content = Column(Text, nullable=False)
     Email = Column(String, nullable=False)
@@ -670,6 +672,9 @@ class Resume(db.Model):
     resume_image = Column(String, nullable=True)
     resume_file = Column(String, nullable=True)
     Work_content = Column(Text, nullable=False)
+
+    def get_name(self):
+        return self.Name
 
     def get_hero_content(self):
         return self.Hero_content
@@ -700,6 +705,7 @@ class Resume(db.Model):
 
     def dict(self):
         return{
+            "name":self.Name,
             "hero_content":self.Hero_content,
             "about_content":self.About_content,
             "email":self.Email,
@@ -838,6 +844,7 @@ class Resume(db.Model):
 
         if resumes["message"]["dict"] == []:
             Resume.add_resume(
+                Name = "Not Set",
                 Hero_content = "Default hero content",
                 About_content = "Default about content",
                 Email = "sample@mail.com",
@@ -1930,7 +1937,7 @@ class ContactMe(db.Model):
             contactme = ContactMe(**kwargs)
             db.session.add(contactme)
             db.session.commit()
-            Settings.send_notification(kwargs["Name"], kwargs["Email"], kwargs["Message"])
+            ContactMe.send_notification(kwargs["Name"], kwargs["Email"], kwargs["Message"])
             return {"message":"Sent successfully","status":"success"}
 
         except Exception as e:
@@ -1994,88 +2001,12 @@ class ContactMe(db.Model):
                 "status":"failed"
             }
 
-
-
-class Settings(db.Model):
-    __tablename__ = "settings"
-
-    id = Column(Integer, primary_key=True)
-    setting_uuid = Column(String, nullable=False, unique=True)
-    Recipient_name = Column(String, nullable=True, unique=True)
-    Recipient_mail = Column(String, nullable=True, unique=True)
-    Sendinblue_Api_Key = Column(String, nullable=True, unique=True)
-
-    def get_id(self):
-        return self.setting_uuid
-
-    def get_recipient_name(self):
-        return self.Recipient_name
-
-    def get_recipient_mail(self):
-        return self.Recipient_mail
-
-    def get_sendinblue_api_key(self):
-        return self.Sendinblue_Api_Key
-
-    def dict(self):
-        return{
-            "id":self.setting_uuid,
-            "recipient_name":self.Recipient_name,
-            "recipient_mail":self.Recipient_mail,
-            "sendinblue_api_key":self.Sendinblue_Api_Key
-        }
-
-    @classmethod
-    def add_recipient(cls, **kwargs):
-        try:
-            settings = db.session.query(Settings).all()
-            if settings == []:
-                setting = Settings(**kwargs)
-                db.session.add(setting)
-                db.session.commit()
-                return {"message":"Notification recipient added","status":"success"}
-
-            else:
-                setting = settings[0]
-                db.session.query(Settings).filter(Settings.id == setting.dict()["id"]).update({**kwargs})
-                return {"message":"Notification recipient updated","status":"success"}
-
-        except Exception as e:
-            logger.exception(e)
-            return{
-                "message":"failed to add recipient",
-                "status":"failed"
-            }
-
-
-    @classmethod
-    def add_sendinblue_api_key(cls, **kwargs):
-        try:
-            settings = db.session.query(Settings).all()
-            if settings == []:
-                setting = Settings(**kwargs)
-                db.session.commit(setting)
-                db.session.add()
-                return {"message":"Api key added","status":"success"}
-
-            else:
-                setting = settings[0]
-                db.session.query(Settings).filter(Settings.id == setting.dict()["id"]).update({**kwargs})
-                return {"message":"Api key updated", "status":"succes"}
-
-        except Exception as e:
-            logger.exception(e)
-            return{
-                "message":"failed to add sendinblue api key",
-                "status":"failed"
-            }
-
-    
     @staticmethod
     def send_notification(sender_name, sender_mail, sender_message):
         try:
-            settings = db.session.query(Settings).all()
-            setting = settings[0]
+            resume = db.session.query(Resume).all()
+            mail = resume[0].dict()["email"]
+            name = resume[0].dict()["name"]
 
             headers = {
                 'accept': 'application/json',
@@ -2090,8 +2021,8 @@ class Settings(db.Model):
                 },
                 'to': [
                     {
-                        'email': setting.dict()["recipient_name"],
-                        'name': setting.dict()["recipient_email"],
+                        'email': mail,
+                        'name': name,
                     },
                 ],
                 'subject': 'ResumeBlog ContactMe',

@@ -27,6 +27,7 @@ const save_btn = document.querySelector(".save_settings")
 save_btn.addEventListener("click",(e) => {
     e.preventDefault()
 
+    const name = document.getElementById("name")
     const upload_resume = document.getElementById("upload_resume")
     const resume_image = document.getElementById("resume_image")
     const twitter_link = document.getElementById("twitter_link")
@@ -36,6 +37,7 @@ save_btn.addEventListener("click",(e) => {
 
     const form = new FormData()
     form.append("csrf_token", csrf_token.value)
+    form.append("name", name.value)
     form.append("upload_resume", upload_resume.files[0])
     form.append("resume_image", resume_image.files[0])
     form.append("twitter_link", twitter_link.value)
@@ -54,3 +56,27 @@ save_btn.addEventListener("click",(e) => {
         flash_response(message, status)
     }
 })
+
+
+function fetch_resume(){
+    const xhr = new XMLHttpRequest()
+    xhr.open("GET","/blog/get_resume", true)
+    xhr.send()
+    xhr.onload = () =>{
+        const data = JSON.parse(xhr.responseText)
+        
+        const name = document.getElementById("name")
+        const twitter_link = document.getElementById("twitter_link")
+        const linkedin_link = document.getElementById("linkedin_link")
+        const github_link = document.getElementById("github_link")
+        const email = document.getElementById("email")
+
+        name.value = data["name"]
+        twitter_link.value = data["twitter"]
+        linkedin_link.value = data["linkedin"]
+        github_link.value = data["github"]
+        email.value = data["email"]
+    }
+}
+
+fetch_resume()

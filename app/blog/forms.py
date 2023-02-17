@@ -487,30 +487,37 @@ class SettingsForm(FlaskForm):
         "Resume Image"
     )
 
+    name = StringField(
+        "Resume Owner Name",
+        render_kw={
+            "placeholder":"Resume Owner Name"
+        }
+    )
+
     twitter_link = StringField(
         "Twitter Profile",
         render_kw = {
-            "placeholder":"https://www.twitter.com/xxxxxxxx",
-            "value":Resume.fetch_resume()["message"]["dict"][0]["twitter"]}
+            "placeholder":"https://www.twitter.com/xxxxxxxx"
+            }
     )
 
     linkedin_link = StringField(
         "LinkedIn Profile",
         render_kw = {
-            "placeholder":"https://www.linkedin.com/in/xxxxxxx",
-            "value":Resume.fetch_resume()["message"]["dict"][0]["linkedin"]}
+            "placeholder":"https://www.linkedin.com/in/xxxxxxx"
+            }
     )
 
     github_link = StringField(
         "Github Profile",
         render_kw = {
-            "placeholder":"https://www.github.com/xxxxxxx",
-            "value":Resume.fetch_resume()["message"]["dict"][0]["github"]}
+            "placeholder":"https://www.github.com/xxxxxxx"
+            }
     )
 
     email = StringField(
         "Email Address",
         render_kw = {
-            "placeholder":"sample@sample_mail.com",
-            "value":Resume.fetch_resume()["message"]["dict"][0]["email"]}
+            "placeholder":"sample@sample_mail.com"
+            }
     )

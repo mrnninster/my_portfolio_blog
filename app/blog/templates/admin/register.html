@@ -79,11 +79,11 @@
           </div>
   
           <div class="password">
-            {{ BloggerForm.password.label }}
-            {{ BloggerForm.password }}
-            {% if BloggerForm.password.errors %}
+            {{ BloggerForm.name.label }}
+            {{ BloggerForm.name }}
+            {% if BloggerForm.name.errors %}
                 <ul class="errors">
-                {% for error in BloggerForm.password.errors %}
+                {% for error in BloggerForm.name.errors %}
                     <li>{{ error }}</li>
                 {% endfor %}
                 </ul>

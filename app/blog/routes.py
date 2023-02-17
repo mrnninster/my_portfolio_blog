@@ -5,8 +5,9 @@ import string
 import random
 import logging
 
+from importlib_metadata import method_cache
+
 from app.blog import blog_bp
-from app.model import Settings
 from app.model import Posts
 from app.model import Skills
 from app.model import Roles
@@ -1310,6 +1311,7 @@ def save_settings():
     try:
         resume_file = request.files["upload_resume"]
         resume_image = request.files["resume_image"]
+        name = request.form["name"]
         twitter_link = request.form["twitter_link"]
         linkedin_link = request.form["linkedin_link"]
         github_link = request.form["github_link"]
@@ -1341,6 +1343,7 @@ def save_settings():
         resume_image.save(resume_imagepath)
 
         kwargs = {
+            "Name":name,
             "Email":mail,
             "twitter":twitter_link,
             "linkedin":linkedin_link,
@@ -1358,3 +1361,9 @@ def save_settings():
             "message":"An error occurrd while saving settings",
             "status":"failed"
         }
+
+
+@blog_bp.route("/get_resume", methods=["GET"])
+@login_required
+def get_resume():
+    return Resume.fetch_resume()["message"]["dict"][0]

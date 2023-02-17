@@ -6298,3 +6298,143 @@ FROM resume]
 2023-02-17 00:39:50,480:DEBUG::====================================================================================================
 2023-02-17 00:39:50,481:INFO::Database logger :: Logging Active
 2023-02-17 00:39:50,481:DEBUG::
+2023-02-17 01:06:07,239:DEBUG::
+2023-02-17 01:06:07,240:DEBUG::====================================================================================================
+2023-02-17 01:06:07,240:INFO::Database logger :: Logging Active
+2023-02-17 01:06:07,241:DEBUG::
+2023-02-17 01:06:08,652:DEBUG::
+2023-02-17 01:06:08,653:DEBUG::====================================================================================================
+2023-02-17 01:06:08,653:INFO::Database logger :: Logging Active
+2023-02-17 01:06:08,654:DEBUG::
+2023-02-17 01:06:36,551:ERROR::list index out of range
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 2078, in send_notification
+    setting = settings[0]
+IndexError: list index out of range
+2023-02-17 01:07:11,714:DEBUG::
+2023-02-17 01:07:11,714:DEBUG::====================================================================================================
+2023-02-17 01:07:11,714:INFO::Database logger :: Logging Active
+2023-02-17 01:07:11,715:DEBUG::
+2023-02-17 01:07:24,623:ERROR::list index out of range
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 2079, in send_notification
+    setting = settings[0]
+IndexError: list index out of range
+2023-02-17 01:10:59,557:DEBUG::
+2023-02-17 01:10:59,558:DEBUG::====================================================================================================
+2023-02-17 01:10:59,558:INFO::Database logger :: Logging Active
+2023-02-17 01:10:59,559:DEBUG::
+2023-02-17 01:21:48,963:DEBUG::
+2023-02-17 01:21:48,964:DEBUG::====================================================================================================
+2023-02-17 01:21:48,964:INFO::Database logger :: Logging Active
+2023-02-17 01:21:48,965:DEBUG::
+2023-02-17 01:21:49,097:ERROR::(sqlite3.OperationalError) no such column: resume.Name
+[SQL: SELECT resume.id AS resume_id, resume."Name" AS "resume_Name", resume."Hero_content" AS "resume_Hero_content", resume."About_content" AS "resume_About_content", resume."Email" AS "resume_Email", resume.twitter AS resume_twitter, resume.github AS resume_github, resume.linkedin AS resume_linkedin, resume.resume_image AS resume_resume_image, resume.resume_file AS resume_resume_file, resume."Work_content" AS "resume_Work_content" 
+FROM resume]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: resume.Name
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 823, in fetch_resume
+    resumes = db.session.query(Resume).all()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\query.py", line 2773, in all
+    return self._iter().all()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: resume.Name
+[SQL: SELECT resume.id AS resume_id, resume."Name" AS "resume_Name", resume."Hero_content" AS "resume_Hero_content", resume."About_content" AS "resume_About_content", resume."Email" AS "resume_Email", resume.twitter AS resume_twitter, resume.github AS resume_github, resume.linkedin AS resume_linkedin, resume.resume_image AS resume_resume_image, resume.resume_file AS resume_resume_file, resume."Work_content" AS "resume_Work_content" 
+FROM resume]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2023-02-17 01:22:50,490:DEBUG::
+2023-02-17 01:22:50,490:DEBUG::====================================================================================================
+2023-02-17 01:22:50,491:INFO::Database logger :: Logging Active
+2023-02-17 01:22:50,491:DEBUG::
+2023-02-17 01:22:59,561:DEBUG::
+2023-02-17 01:22:59,562:DEBUG::====================================================================================================
+2023-02-17 01:22:59,562:INFO::Database logger :: Logging Active
+2023-02-17 01:22:59,563:DEBUG::
+2023-02-17 01:24:30,667:DEBUG::
+2023-02-17 01:24:30,668:DEBUG::====================================================================================================
+2023-02-17 01:24:30,668:INFO::Database logger :: Logging Active
+2023-02-17 01:24:30,669:DEBUG::
+2023-02-17 01:25:09,624:DEBUG::
+2023-02-17 01:25:09,625:DEBUG::====================================================================================================
+2023-02-17 01:25:09,625:INFO::Database logger :: Logging Active
+2023-02-17 01:25:09,626:DEBUG::
+2023-02-17 01:32:44,899:DEBUG::
+2023-02-17 01:32:44,900:DEBUG::====================================================================================================
+2023-02-17 01:32:44,900:INFO::Database logger :: Logging Active
+2023-02-17 01:32:44,901:DEBUG::
+2023-02-17 01:32:48,059:DEBUG::
+2023-02-17 01:32:48,060:DEBUG::====================================================================================================
+2023-02-17 01:32:48,060:INFO::Database logger :: Logging Active
+2023-02-17 01:32:48,061:DEBUG::
+2023-02-17 01:32:49,526:DEBUG::
+2023-02-17 01:32:49,526:DEBUG::====================================================================================================
+2023-02-17 01:32:49,527:INFO::Database logger :: Logging Active
+2023-02-17 01:32:49,527:DEBUG::
+2023-02-17 01:38:04,092:DEBUG::
+2023-02-17 01:38:04,093:DEBUG::====================================================================================================
+2023-02-17 01:38:04,093:INFO::Database logger :: Logging Active
+2023-02-17 01:38:04,093:DEBUG::
+2023-02-17 01:38:32,219:DEBUG::
+2023-02-17 01:38:32,220:DEBUG::====================================================================================================
+2023-02-17 01:38:32,220:INFO::Database logger :: Logging Active
+2023-02-17 01:38:32,221:DEBUG::
+2023-02-17 01:38:33,720:DEBUG::
+2023-02-17 01:38:33,721:DEBUG::====================================================================================================
+2023-02-17 01:38:33,721:INFO::Database logger :: Logging Active
+2023-02-17 01:38:33,722:DEBUG::
+2023-02-17 01:44:19,568:DEBUG::
+2023-02-17 01:44:19,569:DEBUG::====================================================================================================
+2023-02-17 01:44:19,569:INFO::Database logger :: Logging Active
+2023-02-17 01:44:19,569:DEBUG::
+2023-02-17 01:44:42,593:DEBUG::
+2023-02-17 01:44:42,594:DEBUG::====================================================================================================
+2023-02-17 01:44:42,594:INFO::Database logger :: Logging Active
+2023-02-17 01:44:42,595:DEBUG::
+2023-02-17 01:48:53,110:DEBUG::
+2023-02-17 01:48:53,110:DEBUG::====================================================================================================
+2023-02-17 01:48:53,111:INFO::Database logger :: Logging Active
+2023-02-17 01:48:53,111:DEBUG::
+2023-02-17 01:49:04,865:DEBUG::
+2023-02-17 01:49:04,866:DEBUG::====================================================================================================
+2023-02-17 01:49:04,866:INFO::Database logger :: Logging Active
+2023-02-17 01:49:04,867:DEBUG::
+2023-02-17 01:50:22,141:DEBUG::
+2023-02-17 01:50:22,141:DEBUG::====================================================================================================
+2023-02-17 01:50:22,141:INFO::Database logger :: Logging Active
+2023-02-17 01:50:22,142:DEBUG::
+2023-02-17 01:53:34,127:DEBUG::
+2023-02-17 01:53:34,127:DEBUG::====================================================================================================
+2023-02-17 01:53:34,128:INFO::Database logger :: Logging Active
+2023-02-17 01:53:34,128:DEBUG::
+2023-02-17 02:00:01,223:DEBUG::
+2023-02-17 02:00:01,223:DEBUG::====================================================================================================
+2023-02-17 02:00:01,224:INFO::Database logger :: Logging Active
+2023-02-17 02:00:01,224:DEBUG::
