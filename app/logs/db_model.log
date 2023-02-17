@@ -6438,3 +6438,63 @@ FROM resume]
 2023-02-17 02:00:01,223:DEBUG::====================================================================================================
 2023-02-17 02:00:01,224:INFO::Database logger :: Logging Active
 2023-02-17 02:00:01,224:DEBUG::
+2023-02-17 02:02:26,346:DEBUG::
+2023-02-17 02:02:26,346:DEBUG::====================================================================================================
+2023-02-17 02:02:26,347:INFO::Database logger :: Logging Active
+2023-02-17 02:02:26,347:DEBUG::
+2023-02-17 02:02:27,815:DEBUG::
+2023-02-17 02:02:27,815:DEBUG::====================================================================================================
+2023-02-17 02:02:27,815:INFO::Database logger :: Logging Active
+2023-02-17 02:02:27,816:DEBUG::
+2023-02-17 02:02:47,978:ERROR::HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000016D584A7EB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x0000016D584A7EB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000016D584A7EB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 2032, in send_notification
+    response = requests.post('https://api.sendinblue.com/v3/smtp/email', headers=headers, json=json_data)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000016D584A7EB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
