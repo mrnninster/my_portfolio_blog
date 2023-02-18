@@ -6498,3 +6498,253 @@ Traceback (most recent call last):
   File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 565, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000016D584A7EB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2023-02-18 16:05:21,479:DEBUG::
+2023-02-18 16:05:21,479:DEBUG::====================================================================================================
+2023-02-18 16:05:21,480:INFO::Database logger :: Logging Active
+2023-02-18 16:05:21,480:DEBUG::
+2023-02-18 16:05:22,869:DEBUG::
+2023-02-18 16:05:22,870:DEBUG::====================================================================================================
+2023-02-18 16:05:22,870:INFO::Database logger :: Logging Active
+2023-02-18 16:05:22,871:DEBUG::
+2023-02-18 16:36:56,851:DEBUG::
+2023-02-18 16:36:56,852:DEBUG::====================================================================================================
+2023-02-18 16:36:56,852:INFO::Database logger :: Logging Active
+2023-02-18 16:36:56,853:DEBUG::
+2023-02-18 16:41:58,951:DEBUG::
+2023-02-18 16:41:58,951:DEBUG::====================================================================================================
+2023-02-18 16:41:58,951:INFO::Database logger :: Logging Active
+2023-02-18 16:41:58,952:DEBUG::
+2023-02-18 16:42:03,586:DEBUG::
+2023-02-18 16:42:03,586:DEBUG::====================================================================================================
+2023-02-18 16:42:03,587:INFO::Database logger :: Logging Active
+2023-02-18 16:42:03,587:DEBUG::
+2023-02-18 17:22:23,435:DEBUG::
+2023-02-18 17:22:23,436:DEBUG::====================================================================================================
+2023-02-18 17:22:23,436:INFO::Database logger :: Logging Active
+2023-02-18 17:22:23,437:DEBUG::
+2023-02-18 17:22:32,795:DEBUG::
+2023-02-18 17:22:32,795:DEBUG::====================================================================================================
+2023-02-18 17:22:32,796:INFO::Database logger :: Logging Active
+2023-02-18 17:22:32,796:DEBUG::
+2023-02-18 17:22:34,767:DEBUG::
+2023-02-18 17:22:34,768:DEBUG::====================================================================================================
+2023-02-18 17:22:34,768:INFO::Database logger :: Logging Active
+2023-02-18 17:22:34,769:DEBUG::
+2023-02-18 22:27:48,467:DEBUG::
+2023-02-18 22:27:48,467:DEBUG::====================================================================================================
+2023-02-18 22:27:48,468:INFO::Database logger :: Logging Active
+2023-02-18 22:27:48,468:DEBUG::
+2023-02-18 22:30:58,024:DEBUG::
+2023-02-18 22:30:58,025:DEBUG::====================================================================================================
+2023-02-18 22:30:58,025:INFO::Database logger :: Logging Active
+2023-02-18 22:30:58,025:DEBUG::
+2023-02-18 22:33:22,828:DEBUG::
+2023-02-18 22:33:22,828:DEBUG::====================================================================================================
+2023-02-18 22:33:22,829:INFO::Database logger :: Logging Active
+2023-02-18 22:33:22,829:DEBUG::
+2023-02-18 22:34:23,180:DEBUG::
+2023-02-18 22:34:23,180:DEBUG::====================================================================================================
+2023-02-18 22:34:23,181:INFO::Database logger :: Logging Active
+2023-02-18 22:34:23,181:DEBUG::
+2023-02-18 22:49:22,471:DEBUG::
+2023-02-18 22:49:22,472:DEBUG::====================================================================================================
+2023-02-18 22:49:22,472:INFO::Database logger :: Logging Active
+2023-02-18 22:49:22,473:DEBUG::
+2023-02-18 22:51:17,433:DEBUG::
+2023-02-18 22:51:17,433:DEBUG::====================================================================================================
+2023-02-18 22:51:17,434:INFO::Database logger :: Logging Active
+2023-02-18 22:51:17,434:DEBUG::
+2023-02-18 22:55:46,738:DEBUG::
+2023-02-18 22:55:46,739:DEBUG::====================================================================================================
+2023-02-18 22:55:46,739:INFO::Database logger :: Logging Active
+2023-02-18 22:55:46,739:DEBUG::
+2023-02-18 23:01:05,924:DEBUG::
+2023-02-18 23:01:05,924:DEBUG::====================================================================================================
+2023-02-18 23:01:05,925:INFO::Database logger :: Logging Active
+2023-02-18 23:01:05,925:DEBUG::
+2023-02-18 23:01:21,879:DEBUG::
+2023-02-18 23:01:21,880:DEBUG::====================================================================================================
+2023-02-18 23:01:21,880:INFO::Database logger :: Logging Active
+2023-02-18 23:01:21,881:DEBUG::
+2023-02-18 23:03:32,697:DEBUG::
+2023-02-18 23:03:32,697:DEBUG::====================================================================================================
+2023-02-18 23:03:32,698:INFO::Database logger :: Logging Active
+2023-02-18 23:03:32,698:DEBUG::
+2023-02-18 23:36:06,789:DEBUG::
+2023-02-18 23:36:06,790:DEBUG::====================================================================================================
+2023-02-18 23:36:06,790:INFO::Database logger :: Logging Active
+2023-02-18 23:36:06,790:DEBUG::
+2023-02-18 23:36:08,232:DEBUG::
+2023-02-18 23:36:08,232:DEBUG::====================================================================================================
+2023-02-18 23:36:08,232:INFO::Database logger :: Logging Active
+2023-02-18 23:36:08,233:DEBUG::
+2023-02-18 23:36:18,700:ERROR::(sqlite3.OperationalError) no such column: blogger.ResetString
+[SQL: SELECT blogger.id AS blogger_id, blogger."Name" AS "blogger_Name", blogger."Email" AS "blogger_Email", blogger."Password" AS "blogger_Password", blogger."Position" AS "blogger_Position", blogger."Blogger_id" AS "blogger_Blogger_id", blogger."ResetString" AS "blogger_ResetString" 
+FROM blogger 
+WHERE blogger."Email" = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('adefolahanakinsola@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such column: blogger.ResetString
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 248, in get_blogger_by_email
+    blogger = db.session.query(Blogger).filter(Blogger.Email == blogger_email).first()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\query.py", line 2824, in first
+    return self.limit(1)._iter().first()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\query.py", line 2916, in _iter
+    result = self.session.execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\orm\session.py", line 1714, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1705, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\sql\elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1572, in _execute_clauseelement
+    ret = self._execute_context(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1943, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 2124, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\util\compat.py", line 211, in raise_
+    raise exception
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\base.py", line 1900, in _execute_context
+    self.dialect.do_execute(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\sqlalchemy\engine\default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: blogger.ResetString
+[SQL: SELECT blogger.id AS blogger_id, blogger."Name" AS "blogger_Name", blogger."Email" AS "blogger_Email", blogger."Password" AS "blogger_Password", blogger."Position" AS "blogger_Position", blogger."Blogger_id" AS "blogger_Blogger_id", blogger."ResetString" AS "blogger_ResetString" 
+FROM blogger 
+WHERE blogger."Email" = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('adefolahanakinsola@gmail.com', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2023-02-18 23:37:30,839:DEBUG::
+2023-02-18 23:37:30,839:DEBUG::====================================================================================================
+2023-02-18 23:37:30,840:INFO::Database logger :: Logging Active
+2023-02-18 23:37:30,840:DEBUG::
+2023-02-18 23:37:40,591:DEBUG::
+2023-02-18 23:37:40,591:DEBUG::====================================================================================================
+2023-02-18 23:37:40,592:INFO::Database logger :: Logging Active
+2023-02-18 23:37:40,592:DEBUG::
+2023-02-18 23:37:46,851:DEBUG::
+2023-02-18 23:37:46,852:DEBUG::====================================================================================================
+2023-02-18 23:37:46,852:INFO::Database logger :: Logging Active
+2023-02-18 23:37:46,853:DEBUG::
+2023-02-18 23:37:48,291:DEBUG::
+2023-02-18 23:37:48,292:DEBUG::====================================================================================================
+2023-02-18 23:37:48,292:INFO::Database logger :: Logging Active
+2023-02-18 23:37:48,293:DEBUG::
+2023-02-18 23:38:01,230:ERROR::'blogger_id'
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 425, in generate_reset_string
+    blogger_id = blogger["blogger_id"]
+KeyError: 'blogger_id'
+2023-02-18 23:38:35,841:DEBUG::
+2023-02-18 23:38:35,841:DEBUG::====================================================================================================
+2023-02-18 23:38:35,842:INFO::Database logger :: Logging Active
+2023-02-18 23:38:35,842:DEBUG::
+2023-02-18 23:38:45,647:ERROR::'dict' object has no attribute 'dict'
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 425, in generate_reset_string
+    blogger_id = blogger.dict()["blogger_id"]
+AttributeError: 'dict' object has no attribute 'dict'
+2023-02-18 23:39:23,588:DEBUG::
+2023-02-18 23:39:23,588:DEBUG::====================================================================================================
+2023-02-18 23:39:23,588:INFO::Database logger :: Logging Active
+2023-02-18 23:39:23,589:DEBUG::
+2023-02-18 23:41:10,632:DEBUG::
+2023-02-18 23:41:10,632:DEBUG::====================================================================================================
+2023-02-18 23:41:10,633:INFO::Database logger :: Logging Active
+2023-02-18 23:41:10,633:DEBUG::
+2023-02-18 23:43:32,582:DEBUG::
+2023-02-18 23:43:32,582:DEBUG::====================================================================================================
+2023-02-18 23:43:32,583:INFO::Database logger :: Logging Active
+2023-02-18 23:43:32,583:DEBUG::
+2023-02-19 00:20:54,648:DEBUG::
+2023-02-19 00:20:54,648:DEBUG::====================================================================================================
+2023-02-19 00:20:54,649:INFO::Database logger :: Logging Active
+2023-02-19 00:20:54,649:DEBUG::
+2023-02-19 00:21:13,748:DEBUG::
+2023-02-19 00:21:13,748:DEBUG::====================================================================================================
+2023-02-19 00:21:13,749:INFO::Database logger :: Logging Active
+2023-02-19 00:21:13,749:DEBUG::
+2023-02-19 00:21:30,755:DEBUG::
+2023-02-19 00:21:30,755:DEBUG::====================================================================================================
+2023-02-19 00:21:30,756:INFO::Database logger :: Logging Active
+2023-02-19 00:21:30,756:DEBUG::
+2023-02-19 00:21:49,818:DEBUG::
+2023-02-19 00:21:49,818:DEBUG::====================================================================================================
+2023-02-19 00:21:49,818:INFO::Database logger :: Logging Active
+2023-02-19 00:21:49,819:DEBUG::
+2023-02-19 00:22:12,768:DEBUG::
+2023-02-19 00:22:12,768:DEBUG::====================================================================================================
+2023-02-19 00:22:12,769:INFO::Database logger :: Logging Active
+2023-02-19 00:22:12,769:DEBUG::
+2023-02-19 00:22:40,839:DEBUG::
+2023-02-19 00:22:40,840:DEBUG::====================================================================================================
+2023-02-19 00:22:40,840:INFO::Database logger :: Logging Active
+2023-02-19 00:22:40,841:DEBUG::
+2023-02-19 00:23:05,075:DEBUG::
+2023-02-19 00:23:05,075:DEBUG::====================================================================================================
+2023-02-19 00:23:05,076:INFO::Database logger :: Logging Active
+2023-02-19 00:23:05,076:DEBUG::
+2023-02-19 00:23:28,274:DEBUG::
+2023-02-19 00:23:28,275:DEBUG::====================================================================================================
+2023-02-19 00:23:28,275:INFO::Database logger :: Logging Active
+2023-02-19 00:23:28,275:DEBUG::
+2023-02-19 00:23:56,547:DEBUG::
+2023-02-19 00:23:56,548:DEBUG::====================================================================================================
+2023-02-19 00:23:56,548:INFO::Database logger :: Logging Active
+2023-02-19 00:23:56,548:DEBUG::
+2023-02-19 00:24:16,561:DEBUG::
+2023-02-19 00:24:16,561:DEBUG::====================================================================================================
+2023-02-19 00:24:16,562:INFO::Database logger :: Logging Active
+2023-02-19 00:24:16,562:DEBUG::
+2023-02-19 00:24:33,566:DEBUG::
+2023-02-19 00:24:33,566:DEBUG::====================================================================================================
+2023-02-19 00:24:33,567:INFO::Database logger :: Logging Active
+2023-02-19 00:24:33,567:DEBUG::
+2023-02-19 00:25:02,725:DEBUG::
+2023-02-19 00:25:02,725:DEBUG::====================================================================================================
+2023-02-19 00:25:02,725:INFO::Database logger :: Logging Active
+2023-02-19 00:25:02,726:DEBUG::
+2023-02-19 00:25:15,655:DEBUG::
+2023-02-19 00:25:15,655:DEBUG::====================================================================================================
+2023-02-19 00:25:15,656:INFO::Database logger :: Logging Active
+2023-02-19 00:25:15,656:DEBUG::
+2023-02-19 00:25:28,552:DEBUG::
+2023-02-19 00:25:28,552:DEBUG::====================================================================================================
+2023-02-19 00:25:28,553:INFO::Database logger :: Logging Active
+2023-02-19 00:25:28,553:DEBUG::
+2023-02-19 00:25:40,345:DEBUG::
+2023-02-19 00:25:40,345:DEBUG::====================================================================================================
+2023-02-19 00:25:40,346:INFO::Database logger :: Logging Active
+2023-02-19 00:25:40,346:DEBUG::
+2023-02-19 00:26:16,616:DEBUG::
+2023-02-19 00:26:16,616:DEBUG::====================================================================================================
+2023-02-19 00:26:16,617:INFO::Database logger :: Logging Active
+2023-02-19 00:26:16,617:DEBUG::
+2023-02-19 00:26:34,682:DEBUG::
+2023-02-19 00:26:34,682:DEBUG::====================================================================================================
+2023-02-19 00:26:34,683:INFO::Database logger :: Logging Active
+2023-02-19 00:26:34,683:DEBUG::
+2023-02-19 00:27:16,948:DEBUG::
+2023-02-19 00:27:16,949:DEBUG::====================================================================================================
+2023-02-19 00:27:16,949:INFO::Database logger :: Logging Active
+2023-02-19 00:27:16,949:DEBUG::
+2023-02-19 00:27:21,363:DEBUG::
+2023-02-19 00:27:21,364:DEBUG::====================================================================================================
+2023-02-19 00:27:21,364:INFO::Database logger :: Logging Active
+2023-02-19 00:27:21,365:DEBUG::
+2023-02-19 00:27:22,812:DEBUG::
+2023-02-19 00:27:22,813:DEBUG::====================================================================================================
+2023-02-19 00:27:22,813:INFO::Database logger :: Logging Active
+2023-02-19 00:27:22,813:DEBUG::

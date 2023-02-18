@@ -1,6 +1,7 @@
 from ast import Str
 from dataclasses import dataclass
 import os
+import uuid
 import pytz
 import logging
 import requests
@@ -72,6 +73,7 @@ class Blogger(db.Model, UserMixin):
     Password = Column(String, nullable=False)
     Position = Column(String, nullable=False)
     Blogger_id = Column(String(200), nullable=False, unique=True)
+    ResetString = Column(String, nullable=True, unique=True)
 
     def __repr__(self):
         return f"<Blogger {self.Blogger_id}>"
@@ -111,6 +113,11 @@ class Blogger(db.Model, UserMixin):
         blogger_posts = db.session.query(Posts).filter(Posts.Author_uid == self.Blogger_id).order_by(Posts.id).all()
         posts = [post.dict() for post in blogger_posts[::-1]]
         return posts
+
+
+    def get_reset_string(self):
+        return self.ResetString
+
 
     @staticmethod
     def check_admin_is_available():
@@ -173,6 +180,19 @@ class Blogger(db.Model, UserMixin):
 
     @classmethod
     def delete_blogger(cls,blogger_id):
+        """
+        This is a class method, its function
+        is to delete a blogger account
+
+        Params:
+        -------
+        blogger_id: blogger acount iid
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
         try:
             blogger = db.session.query(Blogger).filter(Blogger.Blogger_id == blogger_id).first()
 
@@ -187,6 +207,19 @@ class Blogger(db.Model, UserMixin):
 
     @staticmethod
     def get_blogger_by_id(blogger_id):
+        """
+        This funtion returns a blogger account
+        object by identifying the accounts id.
+
+        Params:
+        -------
+        blogger_id: blogger account id
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
         try:
             blogger = db.session.query(Blogger).filter(Blogger.Blogger_id == blogger_id).first()
             return {"message":blogger.dict(),"status":"success"}
@@ -198,6 +231,19 @@ class Blogger(db.Model, UserMixin):
 
     @staticmethod
     def get_blogger_by_email(blogger_email):
+        """
+        This funtion returns a blogger account
+        object by identifying the accounts email.
+
+        Params:
+        -------
+        blogger_email: blogger account email
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
         try:
             blogger = db.session.query(Blogger).filter(Blogger.Email == blogger_email).first()
             return {"message":blogger.dict(),"status":"success"}
@@ -209,6 +255,24 @@ class Blogger(db.Model, UserMixin):
     
     @staticmethod
     def get_blogger_object(id=None, email=None):
+        """
+        This funtion returns a blogger account
+        object by identifying the account with
+        either its id or email
+
+        Params:
+        -------
+        id: blogger account id.
+                default: None
+
+        email blogger account email.
+                default: None
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
         try:
             obj = None
             if id != None:
@@ -228,6 +292,21 @@ class Blogger(db.Model, UserMixin):
 
     @classmethod
     def update_blogger(cls, blogger_id, **kwargs):
+        """
+        This function is a class method,
+        it updates the blogger account.
+
+        Params:
+        -------
+        blogger_id: blogger account id
+        kwargs: keyword arguments used to identify
+            what colums to update
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
         try:
             db.session.query(Blogger).filter(Blogger.Blogger_id == blogger_id).update({**kwargs})
             db.session.commit()
@@ -318,6 +397,119 @@ class Blogger(db.Model, UserMixin):
         except Exception as e:
             logger.exception(e)
             return {"message":"An error occurred, login failed.","status":"failed"}
+
+
+    @staticmethod
+    def generate_reset_string(email):
+        """
+        This function generates a string used 
+        to reset the blogger account password
+        using uuid
+
+        Params:
+        -------
+        email: blogger account email
+
+        Returns:
+        -------
+        message: The response message
+        status: The response status
+        """
+        try:
+            blogger = Blogger.get_blogger_by_email(email)
+
+            if blogger["status"] == "failed":
+                return blogger
+
+            else:
+                blogger_id = blogger["message"]["blogger_id"]
+                reset_string = uuid.uuid4().hex
+                kwargs = {
+                    "ResetString":reset_string
+                }
+                Blogger.update_blogger(blogger_id, **kwargs)
+                return {
+                    "message":reset_string,
+                    "status":"success"
+                }
+
+        except Exception as e:
+            logger.exception(e)
+            return{
+                "message":"An error while generating reset string",
+                "status":"failed"
+            }
+
+    @staticmethod
+    def send_reset_mail(email):
+        """
+        This function sends the reset password email
+        using send in blue
+
+        Params:
+        -------
+        email: blogger account email
+        sender: The apps automated sending mail
+
+        Returns:
+        --------
+        message: response message
+        status: response status
+        """
+        try:
+            reset_string = Blogger.generate_reset_string(email)
+
+        except Exception as e:
+            logger.exception(e)
+            return{
+                "message":"An error occurred while generating reset link",
+                "status":"failed"
+            }
+
+        else:
+            if reset_string["status"] == "success":
+                sender = "no_reply@adefolahanakinsola.com"
+                link = f"https://www.adefolahanakinsola.com/blog/reset_password/{reset_string['message']}"
+                headers = {
+                    'accept': 'application/json',
+                    'api-key': os.environ.get("SENDINBLUE_API_KEY"),
+                    'content-type': 'application/json',
+                }
+
+                json_data = {
+                    'sender': {
+                        'name': "Portfolio Blog",
+                        'email': sender,
+                    },
+                    'to': [
+                        {
+                            'email': email,
+                            'name': "Blogger",
+                        },
+                    ],
+                    'subject': 'ResumeBlog PasswordReset',
+                    'htmlContent': f"""
+                        <h3> Password Reset Request </h3>
+                        <p>
+                            We received a password reset request, 
+                            plaese click this link to proceed.
+                            This link expires in 30 minutes {link}.
+
+                            If you did not requesta reset, kindly 
+                            ignore this email.
+                        </p>
+                    """,
+                }
+
+                response = requests.post('https://api.sendinblue.com/v3/smtp/email', headers=headers, json=json_data)
+                return{
+                    "message":"Your email has been verified and a reset link sent.",
+                    "status":"success"
+                }
+
+            else:
+                return reset_string
+        
 
 
 class Posts(db.Model):
@@ -673,6 +865,9 @@ class Resume(db.Model):
     resume_file = Column(String, nullable=True)
     Work_content = Column(Text, nullable=False)
 
+    def __repr__(self):
+        return f"<Resume {self.Blogger_id}>"
+
     def get_name(self):
         return self.Name
 
@@ -868,6 +1063,9 @@ class Education(db.Model):
     Location = Column(String, nullable=False)
     Qualification = Column(Text, nullable=False)
 
+    def __repr__(self):
+        return f"<Education {self.record_id}>"
+
     def dict(self):
         return {
             "id": self.record_id,
@@ -1015,6 +1213,9 @@ class Company(db.Model):
     Company_url = Column(String)
     Company_uuid = Column(String, nullable=False, unique=True)
     Roles = relationship('Roles', backref="company")
+
+    def __repr__(self):
+        return f"<Company {self.Company_uuid}>"
 
     def dict(self):
         return{
@@ -1209,6 +1410,9 @@ class Roles(db.Model):
     Role_description = Column(String, nullable=False)
     Company_uid = Column(String, ForeignKey('company.Company_uuid'), nullable=False)
 
+    def __repr__(self):
+        return f"<Roles {self.Role_id}>"
+
     def get_role_id(self):
         return self.Role_id
 
@@ -1367,6 +1571,9 @@ class Certifications(db.Model):
     Certificate_issuer = Column(String, nullable=False)
     Certificate_image = Column(String, nullable=False)
 
+    def __repr__(self):
+        return f"<Certifications {self.Certificate_uid}>"
+
     def dict(self):
         return{
             "uid":self.Certificate_uid,
@@ -1507,6 +1714,9 @@ class Skills(db.Model):
     Skill_name = Column(String, nullable=False)
     Skill_icon = Column(String, nullable=False)
 
+    def __repr__(self):
+        return f"<Skills {self.Skill_uid}>"
+
     def dict(self):
         return{
             "id":self.Skill_uid,
@@ -1638,6 +1848,9 @@ class Languages(db.Model):
     Language_id = Column(String, nullable=False, unique=True)
     Proficiency = Column(String, nullable=False)
 
+    def __repr__(self):
+        return f"<Language {self.Language_id}>"
+
     def get_language_id(self):
         return self.Language_id
 
@@ -1742,6 +1955,9 @@ class Projects(db.Model):
     Project_link = Column(String, nullable=False)
     Project_image = Column(String, nullable=False)
     Project_description = Column(Text, nullable=False)
+
+    def __repr__(self):
+        return f"<Projects {self.Project_id}>"
 
     def dict(self):
         return{
@@ -1886,6 +2102,9 @@ class ContactMe(db.Model):
     Message = Column(Text, nullable=False)
     Read = Column(Boolean, nullable=False, default=False)
     Received = Column(DATETIME, nullable=False, default=current_time)
+
+    def __repr__(self):
+        return f"<ContactMe {self.Contact_id}>"
 
     def dict(self):
         days_count = (datetime.now() - self.Received) / timedelta(days=1)

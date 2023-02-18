@@ -4798,3 +4798,299 @@ werkzeug.exceptions.BadRequestKeyError: 400 Bad Request: The browser (or proxy) 
 2023-02-17 02:02:27,965:DEBUG::====================================================================================================
 2023-02-17 02:02:27,965:INFO::Blog Routes Section :: Logging Active
 2023-02-17 02:02:27,965:DEBUG::
+2023-02-18 16:05:21,700:DEBUG::
+2023-02-18 16:05:21,700:DEBUG::====================================================================================================
+2023-02-18 16:05:21,701:INFO::Blog Routes Section :: Logging Active
+2023-02-18 16:05:21,701:DEBUG::
+2023-02-18 16:05:23,015:DEBUG::
+2023-02-18 16:05:23,015:DEBUG::====================================================================================================
+2023-02-18 16:05:23,015:INFO::Blog Routes Section :: Logging Active
+2023-02-18 16:05:23,015:DEBUG::
+2023-02-18 16:36:57,041:DEBUG::
+2023-02-18 16:36:57,041:DEBUG::====================================================================================================
+2023-02-18 16:36:57,042:INFO::Blog Routes Section :: Logging Active
+2023-02-18 16:36:57,042:DEBUG::
+2023-02-18 16:41:59,183:DEBUG::
+2023-02-18 16:41:59,183:DEBUG::====================================================================================================
+2023-02-18 16:41:59,184:INFO::Blog Routes Section :: Logging Active
+2023-02-18 16:41:59,184:DEBUG::
+2023-02-18 16:42:03,742:DEBUG::
+2023-02-18 16:42:03,742:DEBUG::====================================================================================================
+2023-02-18 16:42:03,743:INFO::Blog Routes Section :: Logging Active
+2023-02-18 16:42:03,743:DEBUG::
+2023-02-18 17:22:32,948:DEBUG::
+2023-02-18 17:22:32,948:DEBUG::====================================================================================================
+2023-02-18 17:22:32,948:INFO::Blog Routes Section :: Logging Active
+2023-02-18 17:22:32,949:DEBUG::
+2023-02-18 17:22:34,992:DEBUG::
+2023-02-18 17:22:34,992:DEBUG::====================================================================================================
+2023-02-18 17:22:34,993:INFO::Blog Routes Section :: Logging Active
+2023-02-18 17:22:34,993:DEBUG::
+2023-02-18 22:27:48,650:DEBUG::
+2023-02-18 22:27:48,650:DEBUG::====================================================================================================
+2023-02-18 22:27:48,650:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:27:48,651:DEBUG::
+2023-02-18 22:30:58,187:DEBUG::
+2023-02-18 22:30:58,187:DEBUG::====================================================================================================
+2023-02-18 22:30:58,188:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:30:58,188:DEBUG::
+2023-02-18 22:33:23,008:DEBUG::
+2023-02-18 22:33:23,008:DEBUG::====================================================================================================
+2023-02-18 22:33:23,008:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:33:23,009:DEBUG::
+2023-02-18 22:34:23,378:DEBUG::
+2023-02-18 22:34:23,378:DEBUG::====================================================================================================
+2023-02-18 22:34:23,378:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:34:23,378:DEBUG::
+2023-02-18 22:49:22,625:DEBUG::
+2023-02-18 22:49:22,626:DEBUG::====================================================================================================
+2023-02-18 22:49:22,626:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:49:22,627:DEBUG::
+2023-02-18 22:51:17,641:DEBUG::
+2023-02-18 22:51:17,641:DEBUG::====================================================================================================
+2023-02-18 22:51:17,642:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:51:17,642:DEBUG::
+2023-02-18 22:55:46,904:DEBUG::
+2023-02-18 22:55:46,904:DEBUG::====================================================================================================
+2023-02-18 22:55:46,905:INFO::Blog Routes Section :: Logging Active
+2023-02-18 22:55:46,905:DEBUG::
+2023-02-18 23:01:06,121:DEBUG::
+2023-02-18 23:01:06,124:DEBUG::====================================================================================================
+2023-02-18 23:01:06,125:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:01:06,125:DEBUG::
+2023-02-18 23:01:22,058:DEBUG::
+2023-02-18 23:01:22,058:DEBUG::====================================================================================================
+2023-02-18 23:01:22,058:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:01:22,059:DEBUG::
+2023-02-18 23:03:32,889:DEBUG::
+2023-02-18 23:03:32,889:DEBUG::====================================================================================================
+2023-02-18 23:03:32,890:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:03:32,890:DEBUG::
+2023-02-18 23:36:06,939:DEBUG::
+2023-02-18 23:36:06,939:DEBUG::====================================================================================================
+2023-02-18 23:36:06,940:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:36:06,940:DEBUG::
+2023-02-18 23:36:08,395:DEBUG::
+2023-02-18 23:36:08,396:DEBUG::====================================================================================================
+2023-02-18 23:36:08,396:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:36:08,397:DEBUG::
+2023-02-18 23:37:30,987:DEBUG::
+2023-02-18 23:37:30,987:DEBUG::====================================================================================================
+2023-02-18 23:37:30,988:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:37:30,989:DEBUG::
+2023-02-18 23:37:40,738:DEBUG::
+2023-02-18 23:37:40,739:DEBUG::====================================================================================================
+2023-02-18 23:37:40,739:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:37:40,740:DEBUG::
+2023-02-18 23:37:47,002:DEBUG::
+2023-02-18 23:37:47,002:DEBUG::====================================================================================================
+2023-02-18 23:37:47,003:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:37:47,003:DEBUG::
+2023-02-18 23:37:48,437:DEBUG::
+2023-02-18 23:37:48,437:DEBUG::====================================================================================================
+2023-02-18 23:37:48,438:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:37:48,439:DEBUG::
+2023-02-18 23:38:36,008:DEBUG::
+2023-02-18 23:38:36,008:DEBUG::====================================================================================================
+2023-02-18 23:38:36,008:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:38:36,009:DEBUG::
+2023-02-18 23:39:23,735:DEBUG::
+2023-02-18 23:39:23,735:DEBUG::====================================================================================================
+2023-02-18 23:39:23,736:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:39:23,736:DEBUG::
+2023-02-18 23:39:31,362:ERROR::HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018027903070>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x0000018027903070>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018027903070>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\blog\routes.py", line 171, in request_reset
+    response = Blogger.send_reset_mail(mail)
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 504, in send_reset_mail
+    response = requests.post('https://api.sendinblue.com/v3/smtp/email', headers=headers, json=json_data)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000018027903070>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2023-02-18 23:41:10,812:DEBUG::
+2023-02-18 23:41:10,813:DEBUG::====================================================================================================
+2023-02-18 23:41:10,813:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:41:10,813:DEBUG::
+2023-02-18 23:41:22,540:ERROR::HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B32C626400>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 174, in _new_conn
+    conn = connection.create_connection(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\connection.py", line 72, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 703, in urlopen
+    httplib_response = self._make_request(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 386, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 1042, in _validate_conn
+    conn.connect()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 358, in connect
+    self.sock = conn = self._new_conn()
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connection.py", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x000001B32C626400>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 489, in send
+    resp = conn.urlopen(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    retries = retries.increment(
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\urllib3\util\retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B32C626400>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\blog\routes.py", line 172, in request_reset
+    response = Blogger.send_reset_mail(mail)
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\model.py", line 504, in send_reset_mail
+    response = requests.post('https://api.sendinblue.com/v3/smtp/email', headers=headers, json=json_data)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 115, in post
+    return request("post", url, data=data, json=json, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\sessions.py", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Adefolahan\miniconda3\envs\blog\lib\site-packages\requests\adapters.py", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.sendinblue.com', port=443): Max retries exceeded with url: /v3/smtp/email (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x000001B32C626400>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+2023-02-18 23:43:32,758:DEBUG::
+2023-02-18 23:43:32,759:DEBUG::====================================================================================================
+2023-02-18 23:43:32,759:INFO::Blog Routes Section :: Logging Active
+2023-02-18 23:43:32,760:DEBUG::
+2023-02-19 00:20:54,813:DEBUG::
+2023-02-19 00:20:54,815:DEBUG::====================================================================================================
+2023-02-19 00:20:54,815:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:20:54,816:DEBUG::
+2023-02-19 00:21:13,901:DEBUG::
+2023-02-19 00:21:13,902:DEBUG::====================================================================================================
+2023-02-19 00:21:13,902:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:21:13,903:DEBUG::
+2023-02-19 00:21:30,907:DEBUG::
+2023-02-19 00:21:30,908:DEBUG::====================================================================================================
+2023-02-19 00:21:30,908:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:21:30,908:DEBUG::
+2023-02-19 00:21:49,981:DEBUG::
+2023-02-19 00:21:49,981:DEBUG::====================================================================================================
+2023-02-19 00:21:49,982:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:21:49,982:DEBUG::
+2023-02-19 00:22:12,968:DEBUG::
+2023-02-19 00:22:12,969:DEBUG::====================================================================================================
+2023-02-19 00:22:12,969:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:22:12,970:DEBUG::
+2023-02-19 00:22:41,034:DEBUG::
+2023-02-19 00:22:41,035:DEBUG::====================================================================================================
+2023-02-19 00:22:41,035:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:22:41,036:DEBUG::
+2023-02-19 00:23:05,239:DEBUG::
+2023-02-19 00:23:05,239:DEBUG::====================================================================================================
+2023-02-19 00:23:05,240:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:23:05,240:DEBUG::
+2023-02-19 00:23:28,446:DEBUG::
+2023-02-19 00:23:28,446:DEBUG::====================================================================================================
+2023-02-19 00:23:28,447:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:23:28,447:DEBUG::
+2023-02-19 00:23:56,731:DEBUG::
+2023-02-19 00:23:56,731:DEBUG::====================================================================================================
+2023-02-19 00:23:56,732:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:23:56,732:DEBUG::
+2023-02-19 00:24:16,717:DEBUG::
+2023-02-19 00:24:16,717:DEBUG::====================================================================================================
+2023-02-19 00:24:16,717:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:24:16,718:DEBUG::
+2023-02-19 00:24:33,721:DEBUG::
+2023-02-19 00:24:33,722:DEBUG::====================================================================================================
+2023-02-19 00:24:33,722:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:24:33,723:DEBUG::
+2023-02-19 00:25:02,880:DEBUG::
+2023-02-19 00:25:02,880:DEBUG::====================================================================================================
+2023-02-19 00:25:02,881:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:25:02,881:DEBUG::
+2023-02-19 00:25:15,800:DEBUG::
+2023-02-19 00:25:15,801:DEBUG::====================================================================================================
+2023-02-19 00:25:15,801:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:25:15,802:DEBUG::
+2023-02-19 00:25:28,717:DEBUG::
+2023-02-19 00:25:28,717:DEBUG::====================================================================================================
+2023-02-19 00:25:28,717:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:25:28,718:DEBUG::
+2023-02-19 00:25:40,520:DEBUG::
+2023-02-19 00:25:40,520:DEBUG::====================================================================================================
+2023-02-19 00:25:40,521:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:25:40,521:DEBUG::
+2023-02-19 00:26:16,773:DEBUG::
+2023-02-19 00:26:16,773:DEBUG::====================================================================================================
+2023-02-19 00:26:16,774:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:26:16,774:DEBUG::
+2023-02-19 00:26:34,837:DEBUG::
+2023-02-19 00:26:34,838:DEBUG::====================================================================================================
+2023-02-19 00:26:34,838:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:26:34,839:DEBUG::
+2023-02-19 00:27:17,097:DEBUG::
+2023-02-19 00:27:17,098:DEBUG::====================================================================================================
+2023-02-19 00:27:17,098:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:27:17,099:DEBUG::
+2023-02-19 00:27:21,512:DEBUG::
+2023-02-19 00:27:21,512:DEBUG::====================================================================================================
+2023-02-19 00:27:21,513:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:27:21,513:DEBUG::
+2023-02-19 00:27:22,976:DEBUG::
+2023-02-19 00:27:22,977:DEBUG::====================================================================================================
+2023-02-19 00:27:22,977:INFO::Blog Routes Section :: Logging Active
+2023-02-19 00:27:22,978:DEBUG::

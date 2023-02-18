@@ -521,3 +521,26 @@ class SettingsForm(FlaskForm):
             "placeholder":"sample@sample_mail.com"
             }
     )
+
+
+class ResetForm(FlaskForm):
+
+    email = StringField(
+        "Your Email",
+        validators=[
+            DataRequired(message="Email cannot be empty"),
+            Email(message=('Invalid Email address.')),
+            Regexp('[a-zA-Z0-9.-_]+@(gmail|neuralfarms)\.(xyz|net|farm|com|io)',message=('Email type is not authorized to register'))
+        ],
+        render_kw={
+            "placeholder":"Enter Email Here"
+        }
+    )
+
+    submit = SubmitField('Send')
+
+    def validate_email(self,email):
+        response = Blogger.mail_is_in_use(email.data)
+        if response["status"] == "failed":
+            logger.debug(f"Error: {response['message']}")
+            raise ValidationError(message=response["message"])

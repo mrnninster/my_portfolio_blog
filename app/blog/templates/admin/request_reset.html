@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+  <link href="/blog{{ url_for('static', filename='css/request_reset.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="form_page">
+        <div class="request_form">
+            <div class="header">
+                PASSWORD RESET REQEST
+            </div>
+
+            <form action="{{url_for('blog_bp.request_reset')}}" class="form_content" method="POST">
+
+                {{Resetform.hidden_tag()}}
+        
+                <fieldset>
+                    {{ Resetform.email.label }}
+                    {{ Resetform.email }}
+                    {% if Resetform.email.errors %}
+                        <ul class="errors">
+                        {% for error in Resetform.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                </fieldset>
+        
+                {{ Resetform.submit }}
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

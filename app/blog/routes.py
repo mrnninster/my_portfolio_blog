@@ -5,7 +5,7 @@ import string
 import random
 import logging
 
-from importlib_metadata import method_cache
+from importlib_metadata import method_cache, re
 
 from app.blog import blog_bp
 from app.model import Posts
@@ -23,7 +23,7 @@ from app.model import Subscribers
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import current_user
-from app.blog.forms import CertificateForm
+from app.blog.forms import CertificateForm, ResetForm
 from app.blog.forms import SettingsForm
 from app.blog.forms import ExperienceForm
 from app.blog.forms import LoginForm
@@ -152,6 +152,34 @@ def blogger_create():
         content = {"page_title":"Create a blogger"}
         )
 
+
+@blog_bp.route("/request_reset", methods=["POST","GET"])
+def request_reset():
+    try:
+        print(request.method)
+        if request.method == "GET":
+            form = ResetForm()
+            return render_template(
+                "admin/request_reset.html", 
+                Resetform = form,
+                content={
+                    "page_title":"Request Reset"
+                } 
+            )
+
+        if request.method == "POST":
+            mail = request.form["email"]
+            response = Blogger.send_reset_mail(mail)
+            flash(response["message"], response["status"])
+            return redirect(url_for("blog_bp.request_reset"))
+
+    
+    except Exception as e:
+        logger.exception(e)
+        flash(
+            "An error occurred while processing reset request",
+            "warning"
+        )
 
 @blog_bp.route('/blogger_login', methods=['POST','GET'])
 def blogger_login():
