@@ -429,7 +429,7 @@ class Blogger(db.Model, UserMixin):
                 }
                 Blogger.update_blogger(blogger_id, **kwargs)
                 return {
-                    "message":reset_string,
+                    "message":f"{blogger_id}/{reset_string}",
                     "status":"success"
                 }
 
@@ -492,8 +492,7 @@ class Blogger(db.Model, UserMixin):
                         <h3> Password Reset Request </h3>
                         <p>
                             We received a password reset request, 
-                            plaese click this link to proceed.
-                            This link expires in 30 minutes {link}.
+                            plaese click this link to proceed.{link}
 
                             If you did not requesta reset, kindly 
                             ignore this email.

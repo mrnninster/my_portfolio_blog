@@ -6,6 +6,7 @@ import random
 import logging
 
 from importlib_metadata import method_cache, re
+from itsdangerous import exc
 
 from app.blog import blog_bp
 from app.model import Posts
@@ -23,7 +24,9 @@ from app.model import Subscribers
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import current_user
-from app.blog.forms import CertificateForm, ResetForm
+from app.blog.forms import CertificateForm
+from app.blog.forms import ResetForm
+from app.blog.forms import PasswordForm
 from app.blog.forms import SettingsForm
 from app.blog.forms import ExperienceForm
 from app.blog.forms import LoginForm
@@ -156,7 +159,6 @@ def blogger_create():
 @blog_bp.route("/request_reset", methods=["POST","GET"])
 def request_reset():
     try:
-        print(request.method)
         if request.method == "GET":
             form = ResetForm()
             return render_template(
@@ -171,8 +173,6 @@ def request_reset():
             mail = request.form["email"]
             response = Blogger.send_reset_mail(mail)
             flash(response["message"], response["status"])
-            return redirect(url_for("blog_bp.request_reset"))
-
     
     except Exception as e:
         logger.exception(e)
@@ -180,6 +180,55 @@ def request_reset():
             "An error occurred while processing reset request",
             "warning"
         )
+    return redirect(url_for("blog_bp.request_reset"))
+
+
+@blog_bp.route("/reset_password/<string:blogger_id>/<string:reset_string>", methods=["GET", "POST"])
+def reset_password(blogger_id,reset_string):
+    try:
+        if request.method == "GET":
+            blogger = Blogger.get_blogger_object(id = blogger_id)["message"]["object"]
+            
+            if reset_string == blogger.get_reset_string():
+                form = PasswordForm()
+                return render_template(
+                    "admin/reset_password.html",
+                    Passwordform = form,
+                    content={
+                        "page_title":"Change Password"
+                    }
+                )
+
+            else:
+                flash("Invalid reset string","warning")
+
+        if request.method == "POST":
+            password = request.form["new_password"]
+
+            hashed_password = generate_password_hash(
+                password=password, method="pbkdf2:sha512:80000", salt_length=16)
+
+            kwargs = {
+                "Password":hashed_password,
+                "ResetString":""
+            }
+
+            response = Blogger.update_blogger(blogger_id=blogger_id, **kwargs)
+            flash(
+                response["message"], response["status"]
+            )
+            return redirect(url_for("blog_bp.blogger_login"))
+            
+
+    except Exception as e:
+        logger.exception(e)
+        flash(
+            "An error occurred, unable to reset password",
+            "failed"
+        )
+    return redirect(url_for("blog_bp.request_reset"))
+
+
 
 @blog_bp.route('/blogger_login', methods=['POST','GET'])
 def blogger_login():

@@ -544,3 +544,35 @@ class ResetForm(FlaskForm):
         if response["status"] == "failed":
             logger.debug(f"Error: {response['message']}")
             raise ValidationError(message=response["message"])
+
+
+
+class PasswordForm(FlaskForm):
+
+    new_password = PasswordField(
+        "New Password",
+        validators=[
+            DataRequired(message="Enter previous password."),
+            Length(min=8,message=('Password is too short.')),
+            Regexp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%-_&.])[A-Za-z\d@$%-_&.]{8,30}$',message=(
+                "Please use a valid password format.."
+                "Password allowed length is a minimum of 8 and Maximum of 30.."
+                "Password characters should contain lower and upper case characters.."
+                "Password should contain at least one of the following special characters '%', '.', '@', '$', '&', '_', '-'"))
+        ]
+    )
+
+    confirm_password = PasswordField(
+        "Confirm Password",
+        validators=[
+            DataRequired(message="Re-Enter Password"),
+            EqualTo('password', message='Passwords must match.'),
+            Regexp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$%*#-_?&])[A-Za-z\d@$#%*-_?&]{8,30}$',message=(
+                """Please use a valid password format.\n
+                Password allowed length is a minimum of 8 and Maximum of 30'\n
+                Password characters should contain lower and upper case characters.\n
+                Password should contain at least one of the following special characters '.','@','~','#','$','&'.'_','-' """))
+        ]
+    )
+
+    submit = SubmitField("Save")

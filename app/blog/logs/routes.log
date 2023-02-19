@@ -5094,3 +5094,33 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.sendinblue.co
 2023-02-19 00:27:22,977:DEBUG::====================================================================================================
 2023-02-19 00:27:22,977:INFO::Blog Routes Section :: Logging Active
 2023-02-19 00:27:22,978:DEBUG::
+2023-02-19 17:12:22,509:DEBUG::
+2023-02-19 17:12:22,510:DEBUG::====================================================================================================
+2023-02-19 17:12:22,511:INFO::Blog Routes Section :: Logging Active
+2023-02-19 17:12:22,511:DEBUG::
+2023-02-19 17:12:23,990:DEBUG::
+2023-02-19 17:12:23,990:DEBUG::====================================================================================================
+2023-02-19 17:12:23,991:INFO::Blog Routes Section :: Logging Active
+2023-02-19 17:12:23,991:DEBUG::
+2023-02-19 17:14:44,661:ERROR::'dict' object has no attribute 'get_reset_string'
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\blog\routes.py", line 192, in reset_password
+    if reset_string == blogger.get_reset_string():
+AttributeError: 'dict' object has no attribute 'get_reset_string'
+2023-02-19 17:15:33,603:ERROR::'dict' object has no attribute 'get_reset_string'
+Traceback (most recent call last):
+  File "C:\Users\Adefolahan\Downloads\WA_AGRO-20221218T221833Z-001\BLOG\app\blog\routes.py", line 192, in reset_password
+    if reset_string == blogger.get_reset_string():
+AttributeError: 'dict' object has no attribute 'get_reset_string'
+2023-02-19 17:16:43,645:DEBUG::
+2023-02-19 17:16:43,645:DEBUG::====================================================================================================
+2023-02-19 17:16:43,646:INFO::Blog Routes Section :: Logging Active
+2023-02-19 17:16:43,646:DEBUG::
+2023-02-19 17:24:17,657:DEBUG::
+2023-02-19 17:24:17,657:DEBUG::====================================================================================================
+2023-02-19 17:24:17,658:INFO::Blog Routes Section :: Logging Active
+2023-02-19 17:24:17,658:DEBUG::
+2023-02-19 17:27:01,178:DEBUG::
+2023-02-19 17:27:01,179:DEBUG::====================================================================================================
+2023-02-19 17:27:01,179:INFO::Blog Routes Section :: Logging Active
+2023-02-19 17:27:01,180:DEBUG::
