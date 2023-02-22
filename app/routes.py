@@ -86,31 +86,6 @@ def save_message():
             "status":"failed"
         }
 
-
-@app.route("/save_message", methods=["POST"])
-def save_message():
-    try:
-        id = uuid.uuid4().hex
-        name = request.form["name"]
-        email = request.form["email"]
-        message = request.form["message"]
-
-        kwargs = {
-            "Contact_id":id,
-            "Name":name,
-            "Email":email,
-            "Message":message
-        }
-
-        response = ContactMe.add_new_contact(**kwargs)
-        return response
-
-    except:
-        return{
-            "message": "An error occurred while saving message",
-            "status":"failed"
-        }
-
 @app.route("/ads.txt")
 def ads():
     return render_template("ads.txt")
