@@ -1,12 +1,8 @@
-from email.mime import image
 import os
 import uuid
 import string
 import random
 import logging
-
-from importlib_metadata import method_cache, re
-from itsdangerous import exc
 
 from app.blog import blog_bp
 from app.model import Posts
@@ -48,6 +44,7 @@ from flask import request, render_template, redirect, flash, url_for, session
 VALID_IMAGE_EXTENTIONS = os.environ.get("VALID_IMAGE_EXTENSIONS")
 VALID_AUDIO_EXTENTIONS = os.environ.get("VALID_AUDIO_EXTENSIONS")
 VALID_VIDEO_EXTENTIONS = os.environ.get("VALID_VIDEO_EXTENSIONS")
+GOOGLE_ANALYTICS_TAG = os.environ.get("GOOGLE_ANALYTICS_TAG")
 
 ######################
 # Blog Routes Logger #
@@ -107,7 +104,11 @@ def allowed_uploads(filename, blog_type):
 
 @blog_bp.route("/base", methods=["GET"])
 def base():
-    return render_template("base.html", content = {"page_title":"BASE"})
+    return render_template("base.html", content = {
+        "page_title":"BASE",
+        "analytics_id":GOOGLE_ANALYTICS_TAG
+        }
+    )
 
 
 @blog_bp.route('/blogger_create', methods=['POST',"GET"])
@@ -165,7 +166,8 @@ def request_reset():
                 "admin/request_reset.html", 
                 Resetform = form,
                 content={
-                    "page_title":"Request Reset"
+                    "page_title":"Request Reset",
+                    "analytics_id":GOOGLE_ANALYTICS_TAG
                 } 
             )
 
@@ -195,7 +197,8 @@ def reset_password(blogger_id,reset_string):
                     "admin/reset_password.html",
                     Passwordform = form,
                     content={
-                        "page_title":"Change Password"
+                        "page_title":"Change Password",
+                        "analytics_id":GOOGLE_ANALYTICS_TAG
                     }
                 )
 
@@ -261,7 +264,10 @@ def blogger_login():
         "admin/login.html", 
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         Loginform = loginform, 
-        content = {"page_title":"Login to blogger account"}
+        content = {
+            "page_title":"Login to blogger account",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            }
         )
 
 
@@ -328,7 +334,10 @@ def blogger_dashboard():
             Blogger_Position = current_user.get_blogger_position(),
             Blogger_Articles = current_user.get_blogger_articles(),
             files = all_files,
-            content = {"page_title":"Admin dashboard"},
+            content = {
+                "page_title":"Admin dashboard",
+                "analytics_id":GOOGLE_ANALYTICS_TAG
+                },
             categories = Posts.get_all_categories(),
             image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
             )
@@ -465,7 +474,10 @@ def preview_article(id):
         Page_name = "Article Preview",
         Title = f"#{article_data['message']['Title']}",
         data = article_data["message"], 
-        content = {"page_title":"Article Preview"}
+        content = {
+            "page_title":"Article Preview",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            }
         )
 
 
@@ -505,7 +517,10 @@ def add_blogger():
         BloggerForm = bloggerform, 
         Blogger_Name = current_user.get_blogger_name(), 
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Create a blogger"},
+        content = {
+            "page_title":"Create a blogger",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            },
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
@@ -527,7 +542,10 @@ def update_blogger():
         Blogger_Name = current_user.get_blogger_name(),
         Blogger_Mail = current_user.get_blogger_email(),
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Update blogger"},
+        content = {
+            "page_title":"Update blogger",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            },
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 
@@ -636,7 +654,10 @@ def update_password():
         Blogger_Name = current_user.get_blogger_name(),
         Blogger_Mail = current_user.get_blogger_email(),
         Blogger_Position = current_user.get_blogger_position(),
-        content = {"page_title":"Update blogger"},
+        content = {
+            "page_title":"Update blogger",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            },
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
     )
 
@@ -660,7 +681,10 @@ def create_resume():
         "admin/create_resume.html",
         Page_name = "Build Your Resume",
         Blogger_Name = current_user.get_blogger_name(), 
-        content = {"page_title":"Build Resume"},
+        content = {
+            "page_title":"Build Resume",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            },
         Resume = resume,
         ResumeForm = resumeform,
         EducationForm = educationform,
@@ -1363,7 +1387,8 @@ def view_message():
         Blogger_Name = current_user.get_blogger_name(),
         content = {
             "page_title":"Messages",
-            "messages":ContactMe.fetch_contact()["message"]
+            "messages":ContactMe.fetch_contact()["message"],
+            "analytics_id":GOOGLE_ANALYTICS_TAG
             },
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
@@ -1377,7 +1402,10 @@ def update_settings():
         Page_name = "Settings",
         Blogger_Name = current_user.get_blogger_name(),
         SettingsForm = SettingsForm(),
-        content = {"page_title":"Settings"},
+        content = {
+            "page_title":"Settings",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            },
         image = Resume.fetch_resume()["message"]["dict"][0]["resume_image"],
         )
 

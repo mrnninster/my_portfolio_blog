@@ -9,14 +9,14 @@ from app.model import Certifications
 from app.blog.forms import ContactForm
 
 from flask import current_app
-from flask import redirect
 from flask import request
-from flask import flash
 from flask import render_template
 
+import os
 import uuid
 
 app = current_app
+GOOGLE_ANALYTICS_TAG = os.environ.get("GOOGLE_ANALYTICS_TAG")
 
 @app.route('/')
 @app.route("/home")
@@ -32,7 +32,8 @@ def index():
             "roles":Roles.fetch_roles()["message"],
             "certificates":Certifications.fetch_certificates()["message"],
             "stack":Skills.fetch_skills()["message"],
-            "projects":Projects.fetch_project()["message"]
+            "projects":Projects.fetch_project()["message"],
+            "analytics_id":GOOGLE_ANALYTICS_TAG
             }
         )
 
@@ -42,7 +43,10 @@ def view_blog():
     return render_template(
         "blog.html", 
         articles=articles,
-        content={"page_title":"Blog Home"}
+        content={
+            "page_title":"Blog Home",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            }
     )
 
 @app.route("/view_article/<string:id>", methods=["GET","POST"])
@@ -52,7 +56,10 @@ def view_article(id):
         Page_name = "Article Preview",
         Title = f"#{article_data['message']['Title']}",
         data = article_data["message"],
-        content = {"page_title":"Article Viewing"})
+        content = {
+            "page_title":"Article Viewing",
+            "analytics_id":GOOGLE_ANALYTICS_TAG
+            })
 
 
 @app.route("/save_message", methods=["POST"])
