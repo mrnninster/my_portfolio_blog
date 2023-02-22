@@ -1,4 +1,5 @@
 # Imports
+import os
 import logging
 
 from app.model import Company, app_tz
@@ -23,7 +24,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s:%(levelname)s::%(message)s")
 
 # Log File Handler
-Log_File_Handler = logging.FileHandler("app/logs/forms.log")
+Log_File_Handler = logging.FileHandler("app/blog/logs/form.log")
 Log_File_Handler.setLevel(logging.DEBUG)
 Log_File_Handler.setFormatter(formatter)
 

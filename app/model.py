@@ -1,5 +1,3 @@
-from ast import Str
-from dataclasses import dataclass
 import os
 import uuid
 import pytz
@@ -30,7 +28,7 @@ logger.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s:%(levelname)s::%(message)s")
 
 # Log File Handler
-Log_File_Handler = logging.FileHandler("app/logs/db_model.log")
+Log_File_Handler = logging.FileHandler("app/blog/logs/db_model.log")
 Log_File_Handler.setLevel(logging.DEBUG)
 Log_File_Handler.setFormatter(formatter)
 
