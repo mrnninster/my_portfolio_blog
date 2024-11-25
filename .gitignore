@@ -3,4 +3,4 @@
 *.log
 *.pyc
 *.db
-migrations
+app/blog/static

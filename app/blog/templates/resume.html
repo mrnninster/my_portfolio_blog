@@ -75,8 +75,9 @@
                         </p>
     
                         <p class="hero_content">
-                            {{content["resume"]["message"]["dict"][0]["hero_content"]}}
+                            {{ content["resume"]["message"]["dict"][0]["hero_content"].replace("\n", "<br>") | safe }}
                         </p>
+                        
     
                         <div class="button_cta">
                             <a href="#contact">
